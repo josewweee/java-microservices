@@ -1,0 +1,5 @@
+package com.vobi.bank.repository;
+
+public interface UserRepository {
+
+}

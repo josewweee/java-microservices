@@ -1,0 +1,2 @@
+module com.vobi.bank {
+}

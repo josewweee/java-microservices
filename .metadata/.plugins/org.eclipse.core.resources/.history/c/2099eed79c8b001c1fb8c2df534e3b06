@@ -1,0 +1,6 @@
+package com.vobi.bank.repository;
+//import org.springframework.data.jpa.repository.
+
+public interface CustomerRepository  {
+
+}

@@ -1,0 +1,126 @@
+package com.vobi.bank.service;
+
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.junit.jupiter.api.Order;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
+import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+
+import com.vobi.bank.domain.UserType;
+import com.vobi.bank.domain.Users;
+import com.vobi.bank.repository.UserTypeRepository;
+
+import lombok.extern.slf4j.Slf4j;
+
+@SpringBootTest
+@TestMethodOrder(OrderAnnotation.class)
+@Slf4j
+public class UsersServiceIT {
+	@Autowired
+	UsersService usersService;
+	
+	@Autowired
+	UserTypeRepository userTypeRepository;
+
+	@Test
+	@Order(1)
+	void debeValidarLasDependencias() {
+		assertNotNull(usersService);
+		assertNotNull(userTypeRepository);
+	}
+	
+	@Test
+	@Order(2)
+	void debeCrearUnCustomer()throws Exception {
+		//Arrange
+		Integer idUserType=1;
+		String userEmail="hola@hola.com";
+		
+		Users user=null;
+		UserType userType=userTypeRepository.findById(idUserType).get();
+		
+		user=new Users();
+		user.setEnable("Enable");
+		user.setName("Name");
+		user.setToken("Token");
+		user.setUserEmail("hjsimpson@gmail.com");
+		user.setUserType(userType);
+		user.setTransactions(null);
+
+		//Act
+		
+		user=usersService.save(user);
+		
+		//Assert
+		
+		assertNotNull(user,"El user es nulo no se pudo grabar");
+	}
+	
+	@Test
+	@Order(3)
+	void debeModificarUnCustomer()throws Exception  {
+		//Arrange
+		
+		Integer idCustomer=14836554;
+		Customer customer=null;
+		
+		
+		customer=usersService.findById(idCustomer).get();
+		customer.setEnable("N");
+		
+		//Act
+		
+		customer=usersService.update(customer);
+		
+		//Assert
+		
+		assertNotNull(customer,"El customer es nulo no se pudo modificar");
+	}
+	
+	@Test
+	@Order(4)
+	void debeBorrarUnCustomer()throws Exception  {
+		//Arrange
+		
+		Integer idCustomer=14836554;
+		Customer customer=null;
+		Optional<Customer> customerOptional=null;
+		
+		assertTrue(usersService.findById(idCustomer).isPresent(),"No encontro el customer");
+		
+		customer=usersService.findById(idCustomer).get();
+		
+		//Act
+		usersService.delete(customer);
+		customerOptional=usersService.findById(idCustomer);
+		
+		//Assert
+		
+		assertFalse(customerOptional.isPresent(),"No pudo borrar el customer");
+	}
+	
+	@Test
+	@Order(5)
+	void debeConsultarTodosLosCustomers()throws Exception  {
+		//Arrange
+		List<Customer> customers=null;
+		
+		//Act
+		
+		customers=usersService.findAll();
+		
+		customers.forEach(customer->log.info(customer.getName()));		
+		
+		//Assert
+		
+		assertFalse(customers.isEmpty(),"No consulto Customers");	
+	}
+}
