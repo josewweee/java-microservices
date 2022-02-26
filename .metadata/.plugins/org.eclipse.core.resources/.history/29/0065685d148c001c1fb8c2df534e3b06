@@ -1,7 +1,0 @@
-package com.vobi.bank.service;
-
-import com.vobi.bank.domain.Customer;
-
-public interface CustomersService extends GenericService<Customer, Integer> {
-
-}

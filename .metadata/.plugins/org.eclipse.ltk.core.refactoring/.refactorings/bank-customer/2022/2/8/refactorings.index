@@ -1,3 +1,5 @@
 1645052558607	Rename type 'UserRepository'
 1645052796947	Rename type 'UserServiceImpl'
 1645055687194	Rename field 'customerService'
+1645228758141	Rename package 'com.vobi.controller'
+1645276308571	Copy package

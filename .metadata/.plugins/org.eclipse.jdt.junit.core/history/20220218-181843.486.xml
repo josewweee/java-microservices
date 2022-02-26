@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><testrun name="UserRepositoryIT" project="bank-customer" tests="5" started="5" failures="0" errors="0" ignored="0">
-  <testsuite name="com.vobi.bank.repository.UserRepositoryIT" time="2.659" displayname="UserRepositoryIT" uniqueid="[engine:junit-jupiter]/[class:com.vobi.bank.repository.UserRepositoryIT]">
-    <testcase name="debeValidarLasDependencias" classname="com.vobi.bank.repository.UserRepositoryIT" time="0.894" displayname="debeValidarLasDependencias()" uniqueid="[engine:junit-jupiter]/[class:com.vobi.bank.repository.UserRepositoryIT]/[method:debeValidarLasDependencias()]"/>
-    <testcase name="debeCrearUnUser" classname="com.vobi.bank.repository.UserRepositoryIT" time="0.656" displayname="debeCrearUnUser()" uniqueid="[engine:junit-jupiter]/[class:com.vobi.bank.repository.UserRepositoryIT]/[method:debeCrearUnUser()]"/>
-    <testcase name="debeModificarUnUser" classname="com.vobi.bank.repository.UserRepositoryIT" time="0.037" displayname="debeModificarUnUser()" uniqueid="[engine:junit-jupiter]/[class:com.vobi.bank.repository.UserRepositoryIT]/[method:debeModificarUnUser()]"/>
-    <testcase name="debeBorrarUnUser" classname="com.vobi.bank.repository.UserRepositoryIT" time="0.229" displayname="debeBorrarUnUser()" uniqueid="[engine:junit-jupiter]/[class:com.vobi.bank.repository.UserRepositoryIT]/[method:debeBorrarUnUser()]"/>
-    <testcase name="debeConsultarTodosLosUsers" classname="com.vobi.bank.repository.UserRepositoryIT" time="0.818" displayname="debeConsultarTodosLosUsers()" uniqueid="[engine:junit-jupiter]/[class:com.vobi.bank.repository.UserRepositoryIT]/[method:debeConsultarTodosLosUsers()]"/>
-  </testsuite>
-</testrun>
